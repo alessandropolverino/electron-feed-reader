@@ -5,6 +5,9 @@ const {
   getSeparators,
   saveFeedUrl,
   getFeedUrls,
+  saveCustomConfig,
+  getCustomConfigs,
+  setConfig,
 } = require("./store.js");
 const { Menu } = remote;
 
@@ -34,11 +37,37 @@ function buildMenu() {
             buildMenu();
           },
         },
+        {
+          label: "Save configuration",
+          click() {
+            saveCustomConfig();
+            buildMenu();
+          },
+        },
       ],
     },
     {
-      label: "Configuration",
-      submenu: [{ label: "Default" }],
+      label: "Configurations",
+      submenu: [
+        {
+          label: "Default",
+          click() {
+            setConfig({
+              name: "default",
+              feedUrl: "",
+              useProxy: false,
+              proxyType: "default",
+              customProxy: "",
+              useCustomSeparator: false,
+              customSeparator: "",
+            });
+          },
+        },
+        {
+          label: "Custom",
+          submenu: getCustomConfigs(),
+        },
+      ],
     },
     {
       label: "Saved",

@@ -1,14 +1,14 @@
 const Store = require("electron-store");
-const configStore = new Store({ name: "config" });
+const savedStore = new Store({ name: "saved-config" });
 
 function saveProxy() {
   let { customProxyIn } = require("./feedReader");
   if (customProxyIn.value != "") {
-    let proxys = configStore.get("proxys");
+    let proxys = savedStore.get("proxys");
     if (proxys) {
-      configStore.set("proxys", proxys.concat(customProxyIn.value));
+      savedStore.set("proxys", proxys.concat(customProxyIn.value));
     } else {
-      configStore.set("proxys", [customProxyIn.value]);
+      savedStore.set("proxys", [customProxyIn.value]);
     }
   } else {
     alert("insert valid proxy");
@@ -16,7 +16,7 @@ function saveProxy() {
 }
 
 function getProxys() {
-  let proxys = configStore.get("proxys");
+  let proxys = savedStore.get("proxys");
   if (proxys) {
     return proxys.map((proxy) => {
       return {
@@ -44,16 +44,16 @@ function setCustomProxy(proxy) {
 
 function saveSeparator() {
   let { separatorIn } = require("./feedReader");
-  let separators = configStore.get("separators");
+  let separators = savedStore.get("separators");
   if (separators) {
-    configStore.set("separators", separators.concat(`${separatorIn.value}`));
+    savedStore.set("separators", separators.concat(`${separatorIn.value}`));
   } else {
-    configStore.set("separators", [`${separatorIn.value}`]);
+    savedStore.set("separators", [`${separatorIn.value}`]);
   }
 }
 
 function getSeparators() {
-  let separators = configStore.get("separators");
+  let separators = savedStore.get("separators");
   if (separators) {
     return separators.map((separator) => {
       return {
@@ -79,11 +79,11 @@ function setCustomSeparator(separator) {
 function saveFeedUrl() {
   let { feedIn } = require("./feedReader");
   if (feedIn.value != "") {
-    let feedUrls = configStore.get("feedUrls");
+    let feedUrls = savedStore.get("feedUrls");
     if (feedUrls) {
-      configStore.set("feedUrls", feedUrls.concat(feedIn.value));
+      savedStore.set("feedUrls", feedUrls.concat(feedIn.value));
     } else {
-      configStore.set("feedUrls", [feedIn.value]);
+      savedStore.set("feedUrls", [feedIn.value]);
     }
   } else {
     alert("Insert valid feed url");
@@ -91,7 +91,7 @@ function saveFeedUrl() {
 }
 
 function getFeedUrls() {
-  let feedUrls = configStore.get("feedUrls");
+  let feedUrls = savedStore.get("feedUrls");
   if (feedUrls) {
     return feedUrls.map((feedUrl) => {
       return {
@@ -111,6 +111,104 @@ function setFeedUrl(feedUrl) {
   feedIn.value = feedUrl;
 }
 
+/**
+ * full config
+ */
+
+const customConfigsStore = new Store({ name: "custom-configs" });
+
+function saveCustomConfig() {
+  let {
+    feedIn,
+    proxyCheck,
+    proxyType,
+    customProxyIn,
+    separatorCheck,
+    separatorIn,
+  } = require("./feedReader");
+  let customConfigs = customConfigsStore.get("customConfigs");
+  if (customConfigs) {
+    customConfigsStore.set(
+      "customConfigs",
+      customConfigs.concat({
+        name: `Custom ${customConfigs.length + 1}`,
+        feedUrl: feedIn.value,
+        useProxy: proxyCheck.checked,
+        proxyType: proxyType.value,
+        customProxy: customProxyIn.value,
+        useCustomSeparator: separatorCheck.checked,
+        customSeparator: separatorIn.value,
+      })
+    );
+  } else {
+    customConfigsStore.set("customConfigs", [
+      {
+        name: "Custom 1",
+        feedUrl: feedIn.value,
+        useProxy: proxyCheck.checked,
+        proxyType: proxyType.value,
+        customProxy: customProxyIn.value,
+        useCustomSeparator: separatorCheck.checked,
+        customSeparator: separatorIn.value,
+      },
+    ]);
+  }
+}
+
+function getCustomConfigs() {
+  let customConfigs = customConfigsStore.get("customConfigs");
+  if (customConfigs) {
+    return customConfigs.map((cfg) => {
+      return {
+        label: cfg.name,
+        click() {
+          setConfig(cfg);
+        },
+      };
+    });
+  } else {
+    return [{ label: "No custom config saved" }];
+  }
+}
+
+function setConfig(cfg) {
+  let {
+    feedIn,
+    proxyCheck,
+    proxyType,
+    customProxyIn,
+    separatorCheck,
+    separatorIn,
+  } = require("./feedReader");
+  feedIn.value = cfg.feedUrl;
+  proxyCheck.checked = cfg.useProxy;
+  if (proxyCheck.checked == true && proxyType.classList.contains("is-hidden")) {
+    proxyType.classList.remove("is-hidden");
+  } else {
+    proxyType.classList.add("is-hidden");
+  }
+  proxyType.value = cfg.proxyType;
+  if (
+    proxyType.value == "custom" &&
+    customProxyIn.classList.contains("is-hidden")
+  ) {
+    customProxyIn.classList.remove("is-hidden");
+  } else {
+    customProxyIn.classList.add("is-hidden");
+  }
+  customProxyIn.value = cfg.customProxy;
+  separatorCheck.checked = cfg.useCustomSeparator;
+  if (
+    separatorCheck.checked == true &&
+    separatorIn.classList.contains("is-hidden")
+  ) {
+    separatorIn.classList.remove("is-hidden");
+  } else {
+    separatorIn.classList.add("is-hidden");
+  }
+  separatorIn.value = cfg.customSeparator;
+}
+
 module.exports = {
   saveProxy: saveProxy,
   getProxys: getProxys,
@@ -118,4 +216,7 @@ module.exports = {
   getSeparators: getSeparators,
   saveFeedUrl: saveFeedUrl,
   getFeedUrls: getFeedUrls,
+  saveCustomConfig: saveCustomConfig,
+  getCustomConfigs: getCustomConfigs,
+  setConfig: setConfig,
 };
