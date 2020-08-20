@@ -1,0 +1,10 @@
+{
+  "config-name": "Default",
+  "feed-url": "",
+  "default-proxy": "https://cors-anywhere.herokuapp.com/",
+  "use-custom-proxy": false,
+  "default-separator": " ",
+  "custom-proxy": "",
+  "use-custom-separator": false,
+  "custom-separator": ""
+}

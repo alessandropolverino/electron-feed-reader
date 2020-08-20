@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Feed Reader</title>
+    <link rel="stylesheet" href="index.css" />
+    <script defer src="feedReader.js"></script>
+    <script defer src="menu.js"></script>
+  </head>
+  <body>
+    <h1>Feed Reader 📝</h1>
+    <p>One app to read 'em all 😎</p>
+    <input
+      type="text"
+      id="url-input"
+      placeholder="Feed url"
+      class="margin-bottom"
+    />
+    <br />
+    <label>Use proxy *</label>
+    <input type="checkbox" name="" id="use-proxy" class="margin-bottom" />
+    <select name="" id="proxy-type" class="is-hidden">
+      <option value="default">Default</option>
+      <option value="custom">Custom</option>
+    </select>
+    <input
+      type="text"
+      name=""
+      id="custom-proxy-in"
+      class="is-hidden"
+      placeholder="<proxy-url>/"
+    />
+    <br />
+    <label for="">Custom separator (default: " "): </label>
+    <input type="checkbox" name="" id="separator-check" />
+    <input type="text" name="" id="separator-in" class="is-hidden" />
+    <br />
+    <button id="read-btn" class="margin-bottom">Leggi Feed</button>
+    <div id="feed-cont">
+      <textarea placeholder="Feed preview" id="feed-area" disabled></textarea>
+    </div>
+    <button id="save-feed-btn">Salva Feed</button>
+    <p style="font-size: 0.7rem;">
+      * La proxy risolve i problemi di CORS, ma può non essere sempre
+      disponibile. Usando una proxy, la richiesta per il feed è mandata
+      all'indirizzo "proxy/feed-url"
+    </p>
+  </body>
+</html>
