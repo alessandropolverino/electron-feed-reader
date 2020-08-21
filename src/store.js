@@ -126,6 +126,7 @@ function saveCustomConfig() {
     separatorCheck,
     separatorIn,
   } = require("./feedReader");
+  let { outFileNameIn, pathDisplay, hourIn } = require("./repeatConfig");
   let customConfigs = customConfigsStore.get("customConfigs");
   if (customConfigs) {
     customConfigsStore.set(
@@ -138,6 +139,9 @@ function saveCustomConfig() {
         customProxy: customProxyIn.value,
         useCustomSeparator: separatorCheck.checked,
         customSeparator: separatorIn.value,
+        repeatOutName: outFileNameIn.value,
+        repeatOutPath: pathDisplay.innerText,
+        repeatOutDailyHour: hourIn.value,
       })
     );
   } else {
@@ -150,6 +154,9 @@ function saveCustomConfig() {
         customProxy: customProxyIn.value,
         useCustomSeparator: separatorCheck.checked,
         customSeparator: separatorIn.value,
+        repeatOutName: outFileNameIn.value,
+        repeatOutPath: pathDisplay.innerText,
+        repeatOutDailyHour: hourIn.value,
       },
     ]);
   }
@@ -180,6 +187,7 @@ function setConfig(cfg) {
     separatorCheck,
     separatorIn,
   } = require("./feedReader");
+  let { outFileNameIn, pathDisplay, hourIn } = require("./repeatConfig");
   feedIn.value = cfg.feedUrl;
   proxyCheck.checked = cfg.useProxy;
   if (proxyCheck.checked == true && proxyType.classList.contains("is-hidden")) {
@@ -207,6 +215,10 @@ function setConfig(cfg) {
     separatorIn.classList.add("is-hidden");
   }
   separatorIn.value = cfg.customSeparator;
+  outFileNameIn.value = cfg.repeatOutName;
+  const { normalize } = require("path");
+  pathDisplay.innerText = normalize(cfg.repeatOutPath);
+  hourIn.value = cfg.repeatOutDailyHour;
 }
 
 module.exports = {

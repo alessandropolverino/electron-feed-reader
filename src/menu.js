@@ -9,27 +9,15 @@ const {
   getCustomConfigs,
   setConfig,
 } = require("./store.js");
-const { Menu } = remote;
+const { Menu, app } = remote;
+
+let nowDate = new Date();
 
 function buildMenu() {
   let menu = Menu.buildFromTemplate([
     {
       label: "Save",
       submenu: [
-        {
-          label: "Save custom proxy",
-          click() {
-            saveProxy();
-            buildMenu();
-          },
-        },
-        {
-          label: "Save custom separator",
-          click() {
-            saveSeparator();
-            buildMenu();
-          },
-        },
         {
           label: "Save Feed Url",
           click() {
@@ -38,7 +26,21 @@ function buildMenu() {
           },
         },
         {
-          label: "Save configuration",
+          label: "Save Custom Proxy",
+          click() {
+            saveProxy();
+            buildMenu();
+          },
+        },
+        {
+          label: "Save Custom Separator",
+          click() {
+            saveSeparator();
+            buildMenu();
+          },
+        },
+        {
+          label: "Save Configuration",
           click() {
             saveCustomConfig();
             buildMenu();
@@ -60,6 +62,9 @@ function buildMenu() {
               customProxy: "",
               useCustomSeparator: false,
               customSeparator: "",
+              repeatOutName: "feed-out.txt",
+              repeatOutPath: app.getPath("documents"),
+              repeatOutDailyHour: nowDate.getHours(),
             });
           },
         },
@@ -73,16 +78,42 @@ function buildMenu() {
       label: "Saved",
       submenu: [
         {
-          label: "proxys ",
+          label: "Feed Urls",
+          submenu: getFeedUrls(),
+        },
+        {
+          label: "Proxys ",
           submenu: getProxys(),
         },
         {
-          label: "separators",
+          label: "Separators",
           submenu: getSeparators(),
         },
+      ],
+    },
+    {
+      label: "Repeat",
+      submenu: [
         {
-          label: "feed Urls",
-          submenu: getFeedUrls(),
+          label: "Hourly",
+          click() {
+            const { readRepeatHour } = require("./scheduleRead");
+            readRepeatHour();
+          },
+        },
+        {
+          label: "Daily",
+          click() {
+            const { readRepeatDay } = require("./scheduleRead");
+            readRepeatDay();
+          },
+        },
+        {
+          label: "Stop repeating",
+          click() {
+            const { clearRepeat } = require("./scheduleRead");
+            clearRepeat();
+          },
         },
       ],
     },

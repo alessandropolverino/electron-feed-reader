@@ -5,6 +5,7 @@
     <title>Feed Reader</title>
     <link rel="stylesheet" href="index.css" />
     <script defer src="feedReader.js"></script>
+    <script defer src="./repeatConfig.js"></script>
     <script defer src="menu.js"></script>
   </head>
   <body>
@@ -17,33 +18,221 @@
       class="margin-bottom"
     />
     <br />
-    <label>Use proxy *</label>
-    <input type="checkbox" name="" id="use-proxy" class="margin-bottom" />
-    <select name="" id="proxy-type" class="is-hidden">
-      <option value="default">Default</option>
-      <option value="custom">Custom</option>
-    </select>
-    <input
-      type="text"
-      name=""
-      id="custom-proxy-in"
-      class="is-hidden"
-      placeholder="<proxy-url>/"
-    />
-    <br />
-    <label for="">Custom separator (default: " "): </label>
-    <input type="checkbox" name="" id="separator-check" />
-    <input type="text" name="" id="separator-in" class="is-hidden" />
-    <br />
-    <button id="read-btn" class="margin-bottom">Leggi Feed</button>
+    <div id="reading-config-toggle">
+      Reading Configuration
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        xmlns:xlink="http://www.w3.org/1999/xlink"
+        version="1.1"
+        id="Capa_1"
+        x="0px"
+        y="0px"
+        viewBox="0 0 256 256"
+        style="enable-background: new 0 0 256 256;"
+        xml:space="preserve"
+        class="arr-dwn"
+      >
+        <g>
+          <g>
+            <polygon
+              points="225.813,48.907 128,146.72 30.187,48.907 0,79.093 128,207.093 256,79.093   "
+            />
+          </g>
+        </g>
+        <g></g>
+        <g></g>
+        <g></g>
+        <g></g>
+        <g></g>
+        <g></g>
+        <g></g>
+        <g></g>
+        <g></g>
+        <g></g>
+        <g></g>
+        <g></g>
+        <g></g>
+        <g></g>
+        <g></g>
+      </svg>
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        xmlns:xlink="http://www.w3.org/1999/xlink"
+        version="1.1"
+        id="Capa_1"
+        x="0px"
+        y="0px"
+        viewBox="0 0 256 256"
+        style="enable-background: new 0 0 256 256;"
+        xml:space="preserve"
+        class="arr-up is-hidden"
+      >
+        <g>
+          <g>
+            <polygon
+              points="128,48.907 0,176.907 30.187,207.093 128,109.28 225.813,207.093 256,176.907   "
+            />
+          </g>
+        </g>
+        <g></g>
+        <g></g>
+        <g></g>
+        <g></g>
+        <g></g>
+        <g></g>
+        <g></g>
+        <g></g>
+        <g></g>
+        <g></g>
+        <g></g>
+        <g></g>
+        <g></g>
+        <g></g>
+        <g></g>
+      </svg>
+    </div>
+    <script>
+      document.getElementById("reading-config-toggle").onclick = () => {
+        document.getElementById("reading-config").classList.toggle("is-hidden");
+        document
+          .getElementsByClassName("arr-dwn")[0]
+          .classList.toggle("is-hidden");
+        document
+          .getElementsByClassName("arr-up")[0]
+          .classList.toggle("is-hidden");
+      };
+    </script>
+    <div id="reading-config" class="is-hidden">
+      <label>Use proxy *</label>
+      <input type="checkbox" name="" id="use-proxy" />
+      <select name="" id="proxy-type" class="is-hidden">
+        <option value="default">Default</option>
+        <option value="custom">Custom</option>
+      </select>
+      <input
+        type="text"
+        name=""
+        id="custom-proxy-in"
+        class="is-hidden"
+        placeholder="<proxy-url>/"
+      />
+      <br />
+      <div class="margin-bottom"></div>
+      <label for="">Custom separator (default: " "): </label>
+      <input type="checkbox" name="" id="separator-check" />
+      <input type="text" name="" id="separator-in" class="is-hidden" />
+      <br />
+    </div>
+    <div id="repeat-reading-config-toggle">
+      Repeat Reading Configuration
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        xmlns:xlink="http://www.w3.org/1999/xlink"
+        version="1.1"
+        id="Capa_1"
+        x="0px"
+        y="0px"
+        viewBox="0 0 256 256"
+        style="enable-background: new 0 0 256 256;"
+        xml:space="preserve"
+        class="arr-dwn"
+      >
+        <g>
+          <g>
+            <polygon
+              points="225.813,48.907 128,146.72 30.187,48.907 0,79.093 128,207.093 256,79.093   "
+            />
+          </g>
+        </g>
+        <g></g>
+        <g></g>
+        <g></g>
+        <g></g>
+        <g></g>
+        <g></g>
+        <g></g>
+        <g></g>
+        <g></g>
+        <g></g>
+        <g></g>
+        <g></g>
+        <g></g>
+        <g></g>
+        <g></g>
+      </svg>
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        xmlns:xlink="http://www.w3.org/1999/xlink"
+        version="1.1"
+        id="Capa_1"
+        x="0px"
+        y="0px"
+        viewBox="0 0 256 256"
+        style="enable-background: new 0 0 256 256;"
+        xml:space="preserve"
+        class="arr-up is-hidden"
+      >
+        <g>
+          <g>
+            <polygon
+              points="128,48.907 0,176.907 30.187,207.093 128,109.28 225.813,207.093 256,176.907   "
+            />
+          </g>
+        </g>
+        <g></g>
+        <g></g>
+        <g></g>
+        <g></g>
+        <g></g>
+        <g></g>
+        <g></g>
+        <g></g>
+        <g></g>
+        <g></g>
+        <g></g>
+        <g></g>
+        <g></g>
+        <g></g>
+        <g></g>
+      </svg>
+    </div>
+    <script>
+      document.getElementById("repeat-reading-config-toggle").onclick = () => {
+        document
+          .getElementById("repeat-reading-config")
+          .classList.toggle("is-hidden");
+        document
+          .getElementsByClassName("arr-dwn")[1]
+          .classList.toggle("is-hidden");
+        document
+          .getElementsByClassName("arr-up")[1]
+          .classList.toggle("is-hidden");
+      };
+    </script>
+    <div id="repeat-reading-config" class="is-hidden margin-bottom">
+      <label>Output File's Name: </label>
+      <input type="text" id="repeat-output-name-in" /><br />
+      <div class="margin-bottom"></div>
+      <label>Output File's Path: </label>
+      <span id="path-display"></span><br />
+      <div class="margin-bottom"></div>
+      <label>Daily Repeat Hour (default current): </label>
+      <input type="number" min="0" max="23" id="hour-in" /><br />
+      <button id="select-path-btn" class="margin-top">Select path</button>
+    </div>
+    <button id="read-btn" class="margin-bottom margin-top">Leggi Feed</button>
     <div id="feed-cont">
-      <textarea placeholder="Feed preview" id="feed-area" disabled></textarea>
+      <textarea
+        placeholder="Feed preview"
+        id="feed-area"
+        disabled
+        unselectable="on"
+        readonly="readonly"
+      ></textarea>
     </div>
     <button id="save-feed-btn">Salva Feed</button>
     <p style="font-size: 0.7rem;">
-      * La proxy risolve i problemi di CORS, ma può non essere sempre
-      disponibile. Usando una proxy, la richiesta per il feed è mandata
-      all'indirizzo "proxy/feed-url"
+      *Default proxy does solve CORS errors, but it could be unavailable.
     </p>
   </body>
 </html>

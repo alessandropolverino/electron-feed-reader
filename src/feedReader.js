@@ -58,6 +58,7 @@ async function handleRead() {
     feedArea.value = feed;
   }
 }
+
 // https://www.salernonotizie.it/feed/
 async function getFeed(url) {
   const axios = require("axios");
@@ -98,4 +99,5 @@ module.exports = {
   separatorIn: separatorIn,
   separatorCheck: separatorCheck,
   feedIn: feedIn,
+  handleRead: handleRead,
 };
