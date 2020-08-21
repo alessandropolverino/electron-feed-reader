@@ -4,6 +4,7 @@ const { saveOutFeed, hourIn } = require("./repeatConfig");
 let repeatInterval = null;
 
 async function readRepeatHour() {
+  alert("Starting hourly reading");
   await handleRead();
   saveOutFeed();
   clearRepeat();
@@ -19,6 +20,7 @@ async function readRepeatHour() {
 }
 
 async function readRepeatDay() {
+  alert("Starting daily reading");
   await handleRead();
   saveOutFeed();
   clearRepeat();
@@ -40,7 +42,7 @@ async function readRepeatDay() {
 
 function clearRepeat() {
   if (repeatInterval != null) {
-    console.log("Stopped repeating");
+    alert("Stop repeating");
     clearInterval(repeatInterval);
     repeatInterval = null;
   }
