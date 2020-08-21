@@ -1,7 +1,7 @@
 {
   "name": "Electron-Feed-Reader",
   "productName": "Electron-Feed-Reader",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "description": "One app to read 'em all",
   "main": "src/index.js",
   "scripts": {
