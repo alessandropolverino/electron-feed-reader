@@ -1,6 +1,6 @@
 {
-  "name": "Electron-Feed-Reader",
-  "productName": "Electron-Feed-Reader",
+  "name": "feed-reader",
+  "productName": "feed-reader",
   "version": "1.0.0",
   "description": "One app to read 'em all",
   "main": "src/index.js",
