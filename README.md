@@ -19,4 +19,4 @@ If you want to contribute, feel just free to fork the code and make the necessar
 
 ## Cross Platform
 
-Built for everyone, feel free to get the installer from [here](https://alessandropolverino.com), or to build it yourself.
+Already built 🔨 for everyone, feel free to get the installer from [here](https://alessandropolverino.com), or to build it yourself.
