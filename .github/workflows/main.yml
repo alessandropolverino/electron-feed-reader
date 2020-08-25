@@ -23,14 +23,10 @@ jobs:
       uses: actions/setup-node@v1
       with:
         node-version: ${{ matrix.node-version }}
-    - run: ls
     - run: yarn
     - run: yarn make
-    - run: ls
     - name: Update build files
       run: |
-        echo "Test push commit to the remote in the workflow" >> test.txt
-
         git config --global user.name "github-actions[bot]"
         git config --global user.email "41898282+github-actions[bot]@users.noreply.github.com"
 
@@ -38,28 +34,26 @@ jobs:
         git commit -m "🦺Automated build"
         git push
     
-#  build-mac:
-#    runs-on: macos-latest
+  build-mac:
+    runs-on: macos-latest
 
-#    strategy:
-#      matrix:
-#       node-version: [12.x]
+    strategy:
+      matrix:
+        node-version: [12.x]
 
-#    steps:
-#    - uses: actions/checkout@v2
-#    - name: Use Node.js ${{ matrix.node-version }}
-#      uses: actions/setup-node@v1
-#      with:
-#        node-version: ${{ matrix.node-version }}
-#    - run: yarn
-#    - run: yarn make
-#    - name: Update build files
-#      run: |
-#        echo "Test push commit to the remote in the workflow" >> test.txt
+    steps:
+    - uses: actions/checkout@v2
+    - name: Use Node.js ${{ matrix.node-version }}
+      uses: actions/setup-node@v1
+      with:
+        node-version: ${{ matrix.node-version }}
+    - run: yarn
+    - run: yarn make
+    - name: Update build files
+      run: |
+        git config --global user.name "github-actions[bot]"
+        git config --global user.email "41898282+github-actions[bot]@users.noreply.github.com"
 
-#        git config --global user.name "github-actions[bot]"
-#        git config --global user.email "41898282+github-actions[bot]@users.noreply.github.com"
-
-#        git add -A
-#        git commit -m "🦺Automated build"
-#        git push
+        git add -A
+        git commit -m "🦺Automated build"
+        git push
