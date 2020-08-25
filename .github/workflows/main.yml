@@ -1,0 +1,57 @@
+# This is a basic workflow to help you get started with Actions
+
+name: Multi-platform build
+
+on:
+#  push:
+#    branches: [ master ]
+#  pull_request:
+#    branches: [ master ]
+  release:
+    types:
+      - created
+
+jobs:
+  build-linux:
+
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        node-version: [12.x]
+
+    steps:
+    - uses: actions/checkout@v2
+    - name: Use Node.js ${{ matrix.node-version }}
+      uses: actions/setup-node@v1
+      with:
+        node-version: ${{ matrix.node-version }}
+    - run: yarn
+    - run: yarn make
+    - name: github-action-publish-binaries
+      uses: skx/github-action-publish-binaries@release-0.14
+      with:
+        # The pattern of files to upload
+        args: 'out/make/deb/x64/*.deb'
+    - name: github-action-publish-binaries
+      uses: skx/github-action-publish-binaries@release-0.14
+      with:
+        # The pattern of files to upload
+        args: 'out/make/rpm/x64/*.rpm'
+    
+  build-mac:
+    runs-on: macos-latest
+    needs: build-linux
+    
+    strategy:
+      matrix:
+        node-version: [12.x]
+
+    steps:
+    - uses: actions/checkout@v2
+    - name: Use Node.js ${{ matrix.node-version }}
+      uses: actions/setup-node@v1
+      with:
+        node-version: ${{ matrix.node-version }}
+    - run: yarn
+    - run: yarn make
