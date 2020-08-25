@@ -36,7 +36,8 @@ jobs:
     
   build-mac:
     runs-on: macos-latest
-
+    needs: build-linux
+    
     strategy:
       matrix:
         node-version: [12.x]
