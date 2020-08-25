@@ -7,6 +7,8 @@
   />
 </p>
 
+## RSS: Read Sites Simply
+
 Just the app you need to read and save your favourites RSS feed in a ".txt" file 😎.
 
 ## Lightweight. Fast. Free.
