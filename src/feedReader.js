@@ -36,6 +36,11 @@ const separatorIn = document.getElementById("separator-in");
 separatorCheck.onclick = () => {
   separatorIn.classList.toggle("is-hidden");
 };
+const itemsLimitCheck = document.getElementById("items-limit");
+const itemsNumberIn = document.getElementById("items-number-in");
+itemsLimitCheck.onchange = () => {
+  itemsNumberIn.classList.toggle("is-hidden");
+};
 
 let defaultProxy = "https://cors-anywhere.herokuapp.com/";
 let feed;
@@ -54,6 +59,9 @@ async function handleRead() {
       urlToRead = `${proxy}${urlToRead}`;
     }
     feed = await getFeed(urlToRead);
+    if (itemsLimitCheck.checked && itemsNumberIn.value != "") {
+      feed = feed.slice(0, itemsNumberIn.value);
+    }
     feed = feed.join(separator);
     feedArea.value = feed;
   }
@@ -100,4 +108,6 @@ module.exports = {
   separatorCheck: separatorCheck,
   feedIn: feedIn,
   handleRead: handleRead,
+  itemsLimitCheck: itemsLimitCheck,
+  itemsNumberIn: itemsNumberIn,
 };

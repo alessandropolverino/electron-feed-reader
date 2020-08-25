@@ -9,14 +9,15 @@ async function readRepeatHour() {
   saveOutFeed();
   clearRepeat();
   repeatInterval = setInterval(async function () {
-    var date = new Date(); // Create a Date object to find out what time it is
-    if (date.getMinutes == 0) {
-      console.log("Reading Feed...");
-      // Check the time
+    // console.log("check time");
+    var date = new Date();
+    console.log(date.getMinutes());
+    if (date.getMinutes() == 0) {
+      // console.log("Reading Feed...");
       await handleRead;
       saveOutFeed();
     }
-  }, 10000);
+  }, 60000);
 }
 
 async function readRepeatDay() {
@@ -30,14 +31,14 @@ async function readRepeatDay() {
     hour = hourIn.value < 0 ? 0 : hourIn.value > 23 ? 0 : hourIn.value;
   }
   repeatInterval = setInterval(async function () {
-    var date = new Date(); // Create a Date object to find out what time it is
+    // console.log("check time");
+    var date = new Date();
     if (date.getHours == hour && date.getMinutes == 0) {
-      console.log("Reading Feed...");
-      // Check the time
+      // console.log("Reading Feed...");
       await handleRead;
       saveOutFeed;
     }
-  }, 60000);
+  }, 86400000);
 }
 
 function clearRepeat() {

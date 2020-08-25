@@ -122,6 +122,10 @@
       <input type="checkbox" name="" id="separator-check" />
       <input type="text" name="" id="separator-in" class="is-hidden" />
       <br />
+      <div class="margin-bottom"></div>
+      <label>Limit number of feed items: </label>
+      <input type="checkbox" id="items-limit" />
+      <input type="number" id="items-number-in" class="is-hidden" />
     </div>
     <div id="repeat-reading-config-toggle">
       Repeat Reading Configuration
@@ -215,10 +219,10 @@
       <div class="margin-bottom"></div>
       <label>Output File's Path: </label>
       <span id="path-display"></span><br />
+      <button id="select-path-btn" class="margin-top">Select path</button><br />
       <div class="margin-bottom"></div>
       <label>Daily Repeat Hour (default current): </label>
       <input type="number" min="0" max="23" id="hour-in" /><br />
-      <button id="select-path-btn" class="margin-top">Select path</button>
     </div>
     <button id="read-btn" class="margin-bottom margin-top">Read Feed</button>
     <div id="feed-cont">

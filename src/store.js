@@ -112,7 +112,7 @@ function setFeedUrl(feedUrl) {
 }
 
 /**
- * full config
+ * Save full forms config
  */
 
 const customConfigsStore = new Store({ name: "custom-configs" });
@@ -125,6 +125,8 @@ function saveCustomConfig() {
     customProxyIn,
     separatorCheck,
     separatorIn,
+    itemsLimitCheck,
+    itemsNumberIn,
   } = require("./feedReader");
   let { outFileNameIn, pathDisplay, hourIn } = require("./repeatConfig");
   let customConfigs = customConfigsStore.get("customConfigs");
@@ -138,6 +140,8 @@ function saveCustomConfig() {
         proxyType: proxyType.value,
         customProxy: customProxyIn.value,
         useCustomSeparator: separatorCheck.checked,
+        useLimitItems: itemsLimitCheck.checked,
+        itemsLimitNumber: itemsNumberIn.value,
         customSeparator: separatorIn.value,
         repeatOutName: outFileNameIn.value,
         repeatOutPath: pathDisplay.innerText,
@@ -154,6 +158,8 @@ function saveCustomConfig() {
         customProxy: customProxyIn.value,
         useCustomSeparator: separatorCheck.checked,
         customSeparator: separatorIn.value,
+        useLimitItems: itemsLimitCheck.checked,
+        itemsLimitNumber: itemsNumberIn.value,
         repeatOutName: outFileNameIn.value,
         repeatOutPath: pathDisplay.innerText,
         repeatOutDailyHour: hourIn.value,
@@ -186,11 +192,13 @@ function setConfig(cfg) {
     customProxyIn,
     separatorCheck,
     separatorIn,
+    itemsLimitCheck,
+    itemsNumberIn,
   } = require("./feedReader");
   let { outFileNameIn, pathDisplay, hourIn } = require("./repeatConfig");
   feedIn.value = cfg.feedUrl;
   proxyCheck.checked = cfg.useProxy;
-  if (proxyCheck.checked == true && proxyType.classList.contains("is-hidden")) {
+  if (proxyCheck.checked && proxyType.classList.contains("is-hidden")) {
     proxyType.classList.remove("is-hidden");
   } else {
     proxyType.classList.add("is-hidden");
@@ -206,15 +214,22 @@ function setConfig(cfg) {
   }
   customProxyIn.value = cfg.customProxy;
   separatorCheck.checked = cfg.useCustomSeparator;
-  if (
-    separatorCheck.checked == true &&
-    separatorIn.classList.contains("is-hidden")
-  ) {
+  if (separatorCheck.checked && separatorIn.classList.contains("is-hidden")) {
     separatorIn.classList.remove("is-hidden");
   } else {
     separatorIn.classList.add("is-hidden");
   }
   separatorIn.value = cfg.customSeparator;
+  itemsLimitCheck.checked = cfg.useLimitItems;
+  if (
+    itemsLimitCheck.checked &&
+    itemsNumberIn.classList.contains("is-hidden")
+  ) {
+    itemsNumberIn.classList.remove("is-hidden");
+  } else {
+    itemsNumberIn.classList.add("is-hidden");
+  }
+  itemsNumberIn.value = cfg.itemsLimitNumber;
   outFileNameIn.value = cfg.repeatOutName;
   const { normalize } = require("path");
   pathDisplay.innerText = normalize(cfg.repeatOutPath);

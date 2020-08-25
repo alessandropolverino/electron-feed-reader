@@ -61,6 +61,8 @@ function buildMenu() {
               proxyType: "default",
               customProxy: "",
               useCustomSeparator: false,
+              useLimitItems: false,
+              itemsLimitNumber: "",
               customSeparator: "",
               repeatOutName: "feed-out.txt",
               repeatOutPath: app.getPath("documents"),
