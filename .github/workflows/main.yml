@@ -25,6 +25,12 @@ jobs:
         node-version: ${{ matrix.node-version }}
     - run: yarn
     - run: yarn make
+    - name: push built files
+      run: |
+        git config --global user.name "github-actions[bot]"
+        git config --global user.email "github-actions-bot@bot.norep"
+        git add -A
+        git commit -m "🦺Build: auto generated"
       
   build-mac:
 
@@ -42,3 +48,9 @@ jobs:
         node-version: ${{ matrix.node-version }}
     - run: yarn
     - run: yarn make
+    - name: push built files
+      run: |
+        git config --global user.name "github-actions[bot]"
+        git config --global user.email "github-actions-bot@bot.norep"
+        git add -A
+        git commit -m "🦺Build: auto generated"
