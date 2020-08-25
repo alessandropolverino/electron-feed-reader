@@ -28,24 +28,16 @@ jobs:
         node-version: ${{ matrix.node-version }}
     - run: yarn
     - run: yarn make
-    - name: Upload deb binary
-      uses: svenstaro/upload-release-action@v2
+    - name: github-action-publish-binaries
+      uses: skx/github-action-publish-binaries@release-0.14
       with:
-        repo_token: ${{ secrets.GITHUB_TOKEN }}
-        file: out/make/deb/x64/*.deb
-        asset_name: linux-x64-deb
-        tag: ${{ github.ref }}
-        overwrite: true
-        body: "This is my release text"
-    - name: Upload rpm binary
-      uses: svenstaro/upload-release-action@v2
+        # The pattern of files to upload
+        args: 'out/make/deb/x64/*.deb'
+    - name: github-action-publish-binaries
+      uses: skx/github-action-publish-binaries@release-0.14
       with:
-        repo_token: ${{ secrets.GITHUB_TOKEN }}
-        file: out/make/rpm/x64/*.deb
-        asset_name: linux-x64-rpm
-        tag: ${{ github.ref }}
-        overwrite: true
-        body: "This is my release text"
+        # The pattern of files to upload
+        args: 'out/make/rpm/x64/*.rpm'
     
   build-mac:
     runs-on: macos-latest
@@ -63,18 +55,3 @@ jobs:
         node-version: ${{ matrix.node-version }}
     - run: yarn
     - run: yarn make
-    - name: Update build files
-      run: |
-        git config --global user.name "github-actions[bot]"
-        git config --global user.email "41898282+github-actions[bot]@users.noreply.github.com"
-
-        git add -A
-        git commit -m "🦺Automated build"
-        git push
-        - name: Upload the artifacts
-    - name: Upload the artifacts
-      uses: skx/github-action-publish-binaries@master
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      with:
-        args: 'example-*'
