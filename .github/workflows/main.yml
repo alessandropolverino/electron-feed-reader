@@ -23,8 +23,10 @@ jobs:
       uses: actions/setup-node@v1
       with:
         node-version: ${{ matrix.node-version }}
+    - run: ls
     - run: yarn
     - run: yarn make
+    - run: ls
     - name: Update build files
       run: |
         echo "Test push commit to the remote in the workflow" >> test.txt
