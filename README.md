@@ -2,7 +2,7 @@
 
 <p align="center">
   <img  
-       src="https://github.com/alessandropolverino/electron-feed-reader/blob/master/icon/1x/icon.png?raw=true"
+       src="https://github.com/alessandropolverino/electron-feed-reader/blob/master/build/icon.png?raw=true"
        alt="electron feeder icon" 
   />
 </p>
