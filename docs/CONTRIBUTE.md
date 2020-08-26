@@ -4,11 +4,14 @@ When contributing to the project, please first discuss the change you wish to ma
 
 ## Pull Request Process
 
-1. Fork the repo and create your branch from master.
+1. Fork the repo and create your branch from:
+
+   - "master" to solve bugs
+   - "develop" to add feature
 
 2. If you've added code that should be tested, add tests.
 
-3. If you have changed APIs, update the docs.
+3. If you have changed APIs or added a new Feature, update the docs.
 
 4. Ensure the tests pass.
 
