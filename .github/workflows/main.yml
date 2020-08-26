@@ -51,4 +51,4 @@ jobs:
         node-version: ${{ matrix.node-version }}
     - run: yarn
     - run: yarn make
-    - run: ls -R out/
+    - run: ls -R out/make/
