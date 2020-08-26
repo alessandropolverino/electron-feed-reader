@@ -28,16 +28,12 @@ jobs:
         node-version: ${{ matrix.node-version }}
     - run: yarn
     - run: yarn make
-    - name: github-action-publish-binaries
-      uses: skx/github-action-publish-binaries@release-0.14
+    - uses: actions/upload-artifact@v2
       with:
-        # The pattern of files to upload
-        args: 'out/make/deb/x64/*.deb'
-    - name: github-action-publish-binaries
-      uses: skx/github-action-publish-binaries@release-0.14
-      with:
-        # The pattern of files to upload
-        args: 'out/make/rpm/x64/*.rpm'
+        name: linux-artifacts
+        path: |
+          out/make/deb/x64/*.deb
+          out/make/rpm/x64/*.rpm
 
 #  build-mac:
 #    runs-on: macos-latest
