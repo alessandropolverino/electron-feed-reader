@@ -1,0 +1,50 @@
+name: release-build
+
+on:
+#  push:
+#    branches: [ master ]
+#  pull_request:
+#    branches: [ master ]
+  release:
+    types:
+      - created
+
+jobs:
+  build-linux:
+
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        node-version: [12.x]
+
+    steps:
+    - uses: actions/checkout@v2
+    - name: Use Node.js ${{ matrix.node-version }}
+      uses: actions/setup-node@v1
+      with:
+        node-version: ${{ matrix.node-version }}
+    - run: yarn
+    - run: yarn make
+    - uses: actions/upload-artifact@v2
+      with:
+        name: linux-artifacts
+        path: |
+          out/make/deb/x64/*.deb
+          out/make/rpm/x64/*.rpm
+#  build-mac:
+#    runs-on: macos-latest
+#    needs: build-linux
+    
+#    strategy:
+#      matrix:
+#        node-version: [12.x]
+
+#    steps:
+#    - uses: actions/checkout@v2
+#    - name: Use Node.js ${{ matrix.node-version }}
+#      uses: actions/setup-node@v1
+#      with:
+#        node-version: ${{ matrix.node-version }}
+#    - run: yarn
+#    - run: yarn make
