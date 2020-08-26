@@ -36,7 +36,7 @@ Nothing to say. You just have to install it ↓, fill in the config form 🖋, r
 
 ## Open Source, powered by [ElectronJs](https://www.electronjs.org/)
 
-If you want to contribute, Please see [here](https://github.com/alessandropolverino/electron-feed-reader/blob/master/docs/CONTRIBUTE.md) for more details.
+If you want to contribute, please see [here](https://github.com/alessandropolverino/electron-feed-reader/blob/master/docs/CONTRIBUTE.md) for more details.
 
 ## Cross Platform
 
