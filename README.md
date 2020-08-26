@@ -68,8 +68,6 @@ WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 Credits to me and [VinStan1](https://github.com/VinStan1) are really appreciated (but not necessary) 🙂.
 
-## How the project works
+## How to contribute
 
-## How to clone the repo
-
-## How To Contribute
+Please see [here](https://github.com/alessandropolverino/electron-feed-reader) for more details
