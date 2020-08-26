@@ -16,6 +16,7 @@ module.exports = {
         setupIcon: path.join(__dirname, "build/icon.ico"),
         loadingGif: path.join(__dirname, "build/installing-gif.gif"),
         setupExe: "FeedReader-Setup.exe",
+        authors: "Alessandro Polverino, Carlo Stanzione",
       },
     },
     {
@@ -24,11 +25,19 @@ module.exports = {
     },
     {
       name: "@electron-forge/maker-deb",
-      config: {},
+      config: {
+        categories: "Office",
+        icon: path.join(__dirname, "build/icon.png"),
+      },
     },
     {
       name: "@electron-forge/maker-rpm",
-      config: {},
+      config: {
+        options: {
+          categories: "Office",
+          icon: path.join(__dirname, "build/icon.png"),
+        },
+      },
     },
   ],
 };
