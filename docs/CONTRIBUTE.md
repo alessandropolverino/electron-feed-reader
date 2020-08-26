@@ -9,6 +9,8 @@ When contributing to the project, please first discuss the change you wish to ma
    - "master" to solve bugs
    - "develop" to add feature
 
+   > Check the [code structure](https://github.com/alessandropolverino/electron-feed-reader/blob/master/docs/CODE-STRUCTURE.md)
+
 2. If you've added code that should be tested, add tests.
 
 3. If you have changed APIs or added a new Feature, update the docs.
