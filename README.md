@@ -9,6 +9,9 @@
 
 [![Generic badge](https://img.shields.io/badge/Windows-Supported-green.svg)](https://github.com/alessandropolverino/electron-feed-reader/releases/latest)
 
+[![Generic badge](https://img.shields.io/badge/Linux-Supported-green.svg)](https://github.com/alessandropolverino/electron-feed-reader/releases/latest)
+
+[![Generic badge](https://img.shields.io/badge/MacOs-Supported-green.svg)](https://github.com/alessandropolverino/electron-feed-reader/releases/latest)
 
 ## RSS as Read Sites Simply
 
@@ -51,3 +54,9 @@ OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION
 WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 Credits to me and [VinStan1](https://github.com/VinStan1) are really appreciated (but not necessary) 🙂.
+
+## How the project works
+
+## How to clone the repo
+
+## How To Contribute
