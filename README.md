@@ -7,6 +7,9 @@
   />
 </p>
 
+[![Generic badge](https://img.shields.io/badge/Windows-Supported-green.svg)](https://github.com/alessandropolverino/electron-feed-reader/releases/latest)
+
+
 ## RSS as Read Sites Simply
 
 Just the app you need to read and save your favourites RSS feed in a ".txt" file 😎.
