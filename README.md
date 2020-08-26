@@ -21,7 +21,8 @@ If you want to contribute, feel just free to fork the code and make the necessar
 
 ## Cross Platform
 
-Already built 🔨 for everyone, feel free to get the installer from [here](https://alessandropolverino.com), or to build it yourself.
+Already built 🔨 for everyone, feel free to get the installer from [here](https://github.com/alessandropolverino/electron-feed-reader/releases/latest), or to build it yourself.
+
 A ⭐ star to the project would be really appreciated. 🤓😊
 
 ## License
