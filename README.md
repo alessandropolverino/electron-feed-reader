@@ -32,7 +32,7 @@ Nothing to say. You just have to install it ↓, fill in the config form 🖋, r
 
 ## Open Source, powered by [ElectronJs](https://www.electronjs.org/)
 
-If you want to [contribute](#-How-to-contribute), feel just free to fork the code and make the necessary changes ⌨!
+If you want to [contribute](#How to contribute), feel just free to fork the code and make the necessary changes ⌨!
 
 ## Cross Platform
 
