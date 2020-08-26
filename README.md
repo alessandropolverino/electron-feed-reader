@@ -8,18 +8,22 @@
 </p>
 
 <p align="center">
-  <img 
-    src="https://img.shields.io/badge/Windows-Supported-green.svg"
-    href="https://github.com/alessandropolverino/electron-feed-reader/releases/latest"
-  />
-  <img 
-    src="https://img.shields.io/badge/Linux-Supported-green.svg"
-    href="https://github.com/alessandropolverino/electron-feed-reader/releases/latest"
-  />
-  <img 
-    src="https://img.shields.io/badge/MacOs-Supported-green.svg"
-    href="https://github.com/alessandropolverino/electron-feed-reader/releases/latest"
-  />
+  <a href="https://github.com/alessandropolverino/electron-feed-reader/releases/latest">
+    <img 
+      src="https://img.shields.io/badge/Windows-Supported-green.svg"
+    />
+  </a>
+  <a href="https://github.com/alessandropolverino/electron-feed-reader/releases/latest">
+    <img 
+      src="https://img.shields.io/badge/Linux-Supported-green.svg"
+    />
+  </a>
+  <a href="https://github.com/alessandropolverino/electron-feed-reader/releases/latest">
+    <img 
+      src="https://img.shields.io/badge/MacOs-Supported-green.svg"
+      href="https://github.com/alessandropolverino/electron-feed-reader/releases/latest"
+    />
+  </a>
 </p>
 
 ## RSS as Read Sites Simply
