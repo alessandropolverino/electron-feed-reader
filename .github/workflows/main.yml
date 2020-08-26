@@ -51,7 +51,6 @@ jobs:
         node-version: ${{ matrix.node-version }}
     - run: yarn
     - run: yarn make
-    - run: ls -R out/make/
     - uses: AButler/upload-release-assets@v2.0
       with:
         files: 'out/make/zip/darwin/x64/*.zip'
@@ -72,7 +71,6 @@ jobs:
         node-version: ${{ matrix.node-version }}
     - run: yarn
     - run: yarn make
-    - run: ls -R out/make/
     - uses: AButler/upload-release-assets@v2.0
       with:
         files: 'out/make/squirrel.windows/x64/*.exe'
