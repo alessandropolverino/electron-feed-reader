@@ -26,6 +26,8 @@ jobs:
         node-version: ${{ matrix.node-version }}
     - run: yarn
     - run: yarn make
+    - run: ls out/make/deb/x64/
+    - run: ls out/make/deb/x64/
     - uses: AButler/upload-release-assets@v2.0
       with:
         files: out/make/deb/x64/*.deb;out/make/rpm/x64/*.rpm'
