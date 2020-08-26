@@ -70,4 +70,4 @@ Credits to me and [VinStan1](https://github.com/VinStan1) are really appreciated
 
 ## How to contribute
 
-Please see [here](https://github.com/alessandropolverino/electron-feed-reader) for more details
+Please see [here](https://github.com/alessandropolverino/electron-feed-reader/blob/master/docs/CONTRIBUTE.md) for more details
