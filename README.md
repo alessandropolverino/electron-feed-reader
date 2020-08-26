@@ -2,7 +2,7 @@
 
 <p align="center">
   <img  
-       src="https://github.com/alessandropolverino/electron-feed-reader/blob/master/icon/1x/icon.png?raw=true"
+       src="https://github.com/alessandropolverino/electron-feed-reader/blob/master/build/icon.png?raw=true"
        alt="electron feeder icon" 
   />
 </p>
@@ -36,7 +36,7 @@ Nothing to say. You just have to install it ↓, fill in the config form 🖋, r
 
 ## Open Source, powered by [ElectronJs](https://www.electronjs.org/)
 
-If you want to [contribute](#How-to-contribute), feel just free to fork the code and make the necessary changes ⌨!
+If you want to contribute, please see [here](https://github.com/alessandropolverino/electron-feed-reader/blob/master/docs/CONTRIBUTE.md) for more details.
 
 ## Cross Platform
 
@@ -70,7 +70,3 @@ The software is released under the MIT License:
 > WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 Credits to me and [VinStan1](https://github.com/VinStan1) are really appreciated (but not necessary) 🙂.
-
-## How to contribute
-
-Please see [here](https://github.com/alessandropolverino/electron-feed-reader/blob/master/docs/CONTRIBUTE.md) for more details.
