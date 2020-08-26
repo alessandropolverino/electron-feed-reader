@@ -26,7 +26,8 @@ module.exports = {
     {
       name: "@electron-forge/maker-deb",
       config: {
-        categories: "Office",
+        mantainer: "Alessandro Polverino, Carlo Stanzione",
+        categories: ["Office"],
         icon: path.join(__dirname, "build/icon.png"),
       },
     },
@@ -34,7 +35,8 @@ module.exports = {
       name: "@electron-forge/maker-rpm",
       config: {
         options: {
-          categories: "Office",
+          mantainer: "Alessandro Polverino, Carlo Stanzione",
+          categories: ["Office"],
           icon: path.join(__dirname, "build/icon.png"),
         },
       },
