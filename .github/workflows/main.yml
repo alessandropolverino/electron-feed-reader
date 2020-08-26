@@ -26,12 +26,12 @@ jobs:
         node-version: ${{ matrix.node-version }}
     - run: yarn
     - run: yarn make
-    - uses: actions/upload-artifact@v2
+    - uses: AButler/upload-release-assets@v2.0
       with:
-        name: linux-artifacts
-        path: |
-          out/make/deb/x64/*.deb
-          out/make/rpm/x64/*.rpm
+        files: out/make/deb/x64/*.deb;out/make/rpm/x64/*.rpm'
+        repo-token: ${{ secrets.GITHUB_TOKEN }}
+
+ 
 #  build-mac:
 #    runs-on: macos-latest
 #    needs: build-linux
