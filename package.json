@@ -1,6 +1,6 @@
 {
-  "name": "feed-reader",
-  "productName": "feed-reader",
+  "name": "FeedReader",
+  "productName": "FeedReader",
   "version": "1.0.0",
   "description": "One app to read 'em all",
   "main": "src/index.js",
@@ -13,7 +13,7 @@
   },
   "keywords": [],
   "author": {
-    "name": "Alessandro__Polverino",
+    "name": "alessandro__polverino, vinstan1",
     "email": "alessandropolverino01@gmail.com"
   },
   "license": "MIT",
@@ -21,7 +21,6 @@
     "forge": "./forge.config.js"
   },
   "dependencies": {
-    "@electron-forge/maker-wix": "^6.0.0-beta.52",
     "axios": "^0.19.2",
     "electron-squirrel-startup": "^1.0.0",
     "electron-store": "^6.0.0",
