@@ -27,10 +27,14 @@ jobs:
     - run: yarn
     - run: yarn make
     - run: ls out/make/deb/x64/
-    - run: ls out/make/deb/x64/
+    - run: ls out/make/rpm/x64/
     - uses: AButler/upload-release-assets@v2.0
       with:
-        files: out/make/deb/x64/*.deb;out/make/rpm/x64/*.rpm'
+        files: out/make/deb/x64/*.deb'
+        repo-token: ${{ secrets.GITHUB_TOKEN }}
+    - uses: AButler/upload-release-assets@v2.0
+      with:
+        files: out/make/rpm/x64/*.rpm'
         repo-token: ${{ secrets.GITHUB_TOKEN }}
 
  
