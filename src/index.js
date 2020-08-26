@@ -7,6 +7,10 @@ if (require("electron-squirrel-startup")) {
   app.quit();
 }
 
+const appWindowIcon = nativeImage.createFromPath(
+  path.join(__dirname, "../build/icon.png")
+);
+
 const createWindow = () => {
   // Create the browser window.
   const mainWindow = new BrowserWindow({
@@ -17,7 +21,8 @@ const createWindow = () => {
     webPreferences: {
       nodeIntegration: true,
     },
-    icon: path.join(__dirname, "../icon/1x/icon.ico"),
+    // icon: path.join(__dirname, "../build/icon"),
+    icon: appWindowIcon,
   });
   // mainWindow.setMenuBarVisibility(false);
 
