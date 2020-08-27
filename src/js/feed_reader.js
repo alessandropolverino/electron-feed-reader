@@ -124,7 +124,6 @@ function clearRepeat() {
 
 /**
  * 
- * @param {Element} $feedArea Dom node
  * @param {Element} $pathDisplayDiv Dom node
  * @param {String} outFilenameInVal Output file name
  * @param {String} feedUrl The URL to read
@@ -136,7 +135,6 @@ function clearRepeat() {
  * @param {Number} sliceNum How many items do you want (default 1)
  */
 async function readRepeatHour(
-  $feedArea,
   $pathDisplayDiv,
   outFilenameInVal,
   feedUrl,
@@ -177,9 +175,22 @@ async function readRepeatHour(
   }, 60000);
 }
 
+
+/**
+ * 
+ * @param {Element} $hourIn Dom node
+ * @param {Element} $pathDisplayDiv Dom node
+ * @param {String} outFilenameInVal Output file name
+ * @param {String} feedUrl The URL to read
+ * @param {String} separator The separator to use (default " ")
+ * @param {Boolean} useProxy Use proxy (default false)
+ * @param {String} proxyTypeVal "default" or "custom" (default null)
+ * @param {String} custProxy The proxy to use (default "")
+ * @param {Boolean} doSlice Returns only part of the items (default false)
+ * @param {Number} sliceNum How many items do you want (default 1)
+ */
 async function readRepeatDay(
   $hourIn,
-  $feedArea,
   $pathDisplayDiv,
   outFilenameInVal,
   feedUrl,
@@ -188,7 +199,8 @@ async function readRepeatDay(
   proxyTypeVal = null,
   custProxy = "",
   doSlice = false,
-  sliceNum = 1) {
+  sliceNum = 1
+) {
   clearRepeat();
   alert("Starting daily reading");
   let feed = await handleRead(
