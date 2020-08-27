@@ -82,18 +82,23 @@ async function setRepeatOutPath($pathDisplayDiv) {
   const { dialog } = require("electron").remote;
   const { filePaths } = await dialog.showOpenDialog({
     buttonLabel: "Select path",
-    properties: ["openDirectory"]
+    properties: ["openDirectory"],
   });
   $pathDisplayDiv.innerText = filePaths[0];
 }
 
 /**
- * 
+ *
  * @param {Element} $feedArea Dom node
  * @param {Element} $pathDisplayDiv Dom node
- * @param {String} outFilenameInVal Output file's name (default to "feed-out.txt")
+ * @param {String} outFilenameInVal Output file's
+ *                                  name (default to "feed-out.txt")
  */
-async function saveOutFeed(feed, $pathDisplayDiv, outFilenameInVal = "feed-out.txt") {
+async function saveOutFeed(
+  feed,
+  $pathDisplayDiv,
+  outFilenameInVal = "feed-out.txt"
+) {
   console.log("saving");
   if (outFilenameInVal != "") {
     if (outFilenameInVal.endsWith(".txt")) {
@@ -121,9 +126,8 @@ function clearRepeat() {
   }
 }
 
-
 /**
- * 
+ *
  * @param {Element} $pathDisplayDiv Dom node
  * @param {String} outFilenameInVal Output file name
  * @param {String} feedUrl The URL to read
@@ -175,9 +179,8 @@ async function readRepeatHour(
   }, 60000);
 }
 
-
 /**
- * 
+ *
  * @param {Element} $hourIn Dom node
  * @param {Element} $pathDisplayDiv Dom node
  * @param {String} outFilenameInVal Output file name
@@ -241,5 +244,5 @@ module.exports = {
   setRepeatOutPath: setRepeatOutPath,
   readRepeatHour: readRepeatHour,
   readRepeatDay: readRepeatDay,
-  clearRepeat: clearRepeat
+  clearRepeat: clearRepeat,
 };

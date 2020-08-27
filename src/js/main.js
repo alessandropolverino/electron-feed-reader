@@ -5,15 +5,12 @@ const proxyType = document.getElementById("proxy-type");
 const customProxyIn = document.getElementById("custom-proxy-in");
 proxyCheck.onclick = () => {
   proxyType.classList.toggle("is-hidden");
-  if (
-    !proxyCheck.checked &&
-        !customProxyIn.classList.contains("is-hidden")
-  ) {
+  if (!proxyCheck.checked && !customProxyIn.classList.contains("is-hidden")) {
     customProxyIn.classList.add("is-hidden");
   } else if (
     proxyCheck.checked &&
-        proxyType.value == "custom" &&
-        customProxyIn.classList.contains("is-hidden")
+    proxyType.value == "custom" &&
+    customProxyIn.classList.contains("is-hidden")
   ) {
     customProxyIn.classList.remove("is-hidden");
   }
@@ -21,7 +18,7 @@ proxyCheck.onclick = () => {
 proxyType.onchange = () => {
   if (
     proxyType.value == "default" &&
-        !customProxyIn.classList.contains("is-hidden")
+    !customProxyIn.classList.contains("is-hidden")
   ) {
     customProxyIn.classList.add("is-hidden");
   } else {
@@ -46,7 +43,7 @@ const selectOutPathBtn = document.getElementById("select-path-btn");
 const hourIn = document.getElementById("hour-in");
 
 // Handles menu
-const { buildMenu } = require('./js/menu.js');
+const { buildMenu } = require("./js/menu.js");
 buildMenu({
   $proxyCheck: proxyCheck,
   $customProxyIn: customProxyIn,
@@ -60,8 +57,8 @@ buildMenu({
   $outFileNameIn: outFileNameIn,
   $pathDisplayDiv: pathDisplayDiv,
   $selectPathBtn: selectOutPathBtn,
-  $hourIn: hourIn
-})
+  $hourIn: hourIn,
+});
 
 // Reading
 readBtn.onclick = async function () {
@@ -92,9 +89,9 @@ saveFeedBtn.onclick = () => {
 
 if (pathDisplayDiv.innerText == "") {
   const getPath = require("electron").remote.app.getPath;
-  pathDisplayDiv.innerText = getPath("documents")
+  pathDisplayDiv.innerText = getPath("documents");
 }
 selectOutPathBtn.onclick = async function () {
   const { setRepeatOutPath } = require("./js/feed_reader.js");
   setRepeatOutPath(pathDisplayDiv);
-}
+};

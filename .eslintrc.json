@@ -8,6 +8,8 @@
     "ecmaVersion": 11
   },
   "rules": {
-    "indent": ["error", 2, { "offsetTernaryExpressions": true }]
+    "indent": ["error", 2, { "offsetTernaryExpressions": true }],
+    "max-len": ["error",{"code": 80}
+    ]
   }
 }

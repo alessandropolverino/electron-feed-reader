@@ -26,7 +26,7 @@ function buildMenu(domNodes) {
               saveFeedUrl(feedUrl);
               buildMenu(domNodes);
             } else {
-              alert("Insert valid feed url")
+              alert("Insert valid feed url");
             }
           },
         },
@@ -114,11 +114,18 @@ function buildMenu(domNodes) {
         },
         {
           label: "Proxys ",
-          submenu: getProxys(domNodes.$proxyCheck, domNodes.$proxyType, domNodes.$customProxyIn),
+          submenu: getProxys(
+            domNodes.$proxyCheck,
+            domNodes.$proxyType,
+            domNodes.$customProxyIn
+          ),
         },
         {
           label: "Separators",
-          submenu: getSeparators(domNodes.$separatorCheck, domNodes.$separatorIn),
+          submenu: getSeparators(
+            domNodes.$separatorCheck,
+            domNodes.$separatorIn
+          ),
         },
       ],
     },
@@ -176,5 +183,5 @@ function buildMenu(domNodes) {
 }
 
 module.exports = {
-  buildMenu: buildMenu
-}
+  buildMenu: buildMenu,
+};

@@ -2,7 +2,7 @@ const Store = require("electron-store");
 const savedStore = new Store({ name: "saved-config" });
 
 /**
- * 
+ *
  * @param {String} custProxyVal Value of the proxy to save
  */
 function saveProxy(custProxyVal) {
@@ -19,7 +19,7 @@ function saveProxy(custProxyVal) {
 }
 
 /**
- * 
+ *
  * @param {Element} $proxyCheck Dom node
  * @param {Element} $proxyType Dom node
  * @param {Element} $customProxyIn Dom node
@@ -31,8 +31,14 @@ function getProxys($proxyCheck, $proxyType, $customProxyIn) {
       return {
         label: proxy,
         click() {
-          if (!$proxyCheck instanceof Element || !$proxyType instanceof Element || !$customProxyIn instanceof Element) {
-            throw new Error("Invalid parameters passed, they all have to be DOMElements")
+          if (
+            !$proxyCheck instanceof Element ||
+            !$proxyType instanceof Element ||
+            !$customProxyIn instanceof Element
+          ) {
+            throw new Error(
+              "Invalid parameters passed, they all have to be DOMElements"
+            );
           }
           $proxyCheck.checked = true;
           $proxyType.value = "custom";
@@ -50,7 +56,7 @@ function getProxys($proxyCheck, $proxyType, $customProxyIn) {
 }
 
 /**
- * 
+ *
  * @param {String} separator Value of the separator to save
  */
 function saveSeparator(separator) {
@@ -63,7 +69,7 @@ function saveSeparator(separator) {
 }
 
 /**
- * 
+ *
  * @param {Element} $separatorCheck Dom node
  * @param {Element} $separatorIn Dom node
  */
@@ -74,8 +80,11 @@ function getSeparators($separatorCheck, $separatorIn) {
       return {
         label: `\"${separator}\"`,
         click() {
-          if (!$separatorCheck instanceof Element || !$separatorIn instanceof Element) {
-            throw new Error("Invalid parameter")
+          if (
+            !$separatorCheck instanceof Element ||
+            !$separatorIn instanceof Element
+          ) {
+            throw new Error("Invalid parameter");
           }
           $separatorCheck.checked = true;
           if ($separatorIn.classList.contains("is-hidden"))
@@ -90,7 +99,7 @@ function getSeparators($separatorCheck, $separatorIn) {
 }
 
 /**
- * 
+ *
  * @param {String} feedUrl Feed Url to save
  */
 function saveFeedUrl(feedUrl) {
@@ -100,11 +109,10 @@ function saveFeedUrl(feedUrl) {
   } else {
     savedStore.set("feedUrls", [feedUrl]);
   }
-
 }
 
 /**
- * 
+ *
  * @param {Element} $feedIn Dom node
  */
 function getFeedUrls($feedIn) {
@@ -115,7 +123,7 @@ function getFeedUrls($feedIn) {
         label: feedUrl,
         click() {
           if (!$feedIn instanceof Element) {
-            throw new Error("Invalid parameter passed")
+            throw new Error("Invalid parameter passed");
           }
           $feedIn.value = feedUrl;
         },
@@ -126,7 +134,6 @@ function getFeedUrls($feedIn) {
   }
 }
 
-
 /**
  * Save full forms config
  */
@@ -134,7 +141,7 @@ function getFeedUrls($feedIn) {
 const customConfigsStore = new Store({ name: "custom-configs" });
 
 /**
- * Handles custom full config save 
+ * Handles custom full config save
  * @param {Element} $feedIn Dom node
  * @param {Element} $proxyCheck Dom node
  * @param {Element} $proxyType Dom node
@@ -199,7 +206,6 @@ function saveCustomConfig(
   }
 }
 
-
 /**
  * @param {Element} $feedIn Dom node
  * @param {Element} $proxyCheck Dom node
@@ -212,7 +218,7 @@ function saveCustomConfig(
  * @param {Element} $outFileNameIn Dom node
  * @param {Element} $pathDisplayDiv Dom node
  * @param {Element} $hourIn Dom node
- * @returns {Object[]} An array of object to use as Electron submenu with label 
+ * @returns {Object[]} An array of object to use as Electron submenu with label
  *                      and onclick function that sets the config
  */
 function getCustomConfigs(
@@ -258,7 +264,7 @@ function getCustomConfigs(
 
 /**
  * Sets the config
- * @param {Object} cfg Object taken from saved configs 
+ * @param {Object} cfg Object taken from saved configs
  * @param {Element} $feedIn Dom node
  * @param {Element} $proxyCheck Dom node
  * @param {Element} $proxyType Dom node
