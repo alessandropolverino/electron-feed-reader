@@ -21,6 +21,23 @@ When contributing to the project, please first discuss the change you wish to ma
 
 6. Issue the pull request.
 
+## Usage
+
+We are using node v12.18.3 and yarn (strongly recommended) v1.22.4.
+
+Useful commands:
+
+```bash
+# Run the app
+yarn start
+
+# Build
+yarn make
+
+# Lint the code
+yarn lint
+```
+
 ## Any Contribution Will Be Under the MIT Software License
 
 Briefly, by submitting your code, your submissions are understood to be under the same MIT license that covers the project.
